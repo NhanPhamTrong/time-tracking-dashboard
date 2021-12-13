@@ -1,0 +1,67 @@
+body {
+    background-color: $body-background;
+
+    header {
+        background-color: $card-background;
+    
+        #info {
+            background-color: $info-background;
+            color: $word-color-1;
+    
+            a {
+                img {
+                    border-color: $image-border;
+                }
+            }
+        }
+    
+        section {
+            ul {
+                li {
+                    button {
+                        background-color: transparent;
+                        color: $word-color-2;
+                    }
+    
+                    button:hover, button.active {
+                        color: $word-color-1;
+                    }
+                }
+            }
+        }
+    }
+
+    $itemBackgroundColor: (
+            "item-0": $work-background,
+            "item-1": $play-background,
+            "item-2": $study-background,
+            "item-3": $exercise-background,
+            "item-4": $social-background,
+            "item-5": $self-care-background,
+        );
+
+        @each $itemBackgroundColor, $i in $itemBackgroundColor {
+            section.#{$itemBackgroundColor} {
+                background-color: $i;
+            }
+        }
+    
+    section.item {
+        .card {
+            background-color: $card-background;
+            color: $word-color-1;
+
+            button {
+                background-color: transparent;
+            }
+
+            p {
+                color: $word-color-2;
+            }
+        }
+
+        .card:hover {
+            background-color: $card-background-hover;
+        }
+    }
+}

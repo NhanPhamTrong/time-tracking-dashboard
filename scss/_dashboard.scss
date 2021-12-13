@@ -1,0 +1,71 @@
+$itemBackgroundImage: (
+        "item-0": url("../images/icon-work.svg"),
+        "item-1": url("../images/icon-play.svg"),
+        "item-2": url("../images/icon-study.svg"),
+        "item-3": url("../images/icon-exercise.svg"),
+        "item-4": url("../images/icon-social.svg"),
+        "item-5": url("../images/icon-self-care.svg"),
+    );
+
+    @each $itemBackgroundImage, $i in $itemBackgroundImage {
+        section.#{$itemBackgroundImage} {
+            background-image: $i;
+        }
+    }
+
+section.item {
+    height: 100%;
+    width: 100%;
+    background-position: top 0 right 10%;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    display: flex;
+    align-items: flex-end;
+
+    .card {
+        width: 100%;
+        border-radius: 15px;
+        cursor: pointer;
+        display: grid;
+
+        button {
+            grid-column: 2;
+            justify-self: end;
+            width: 21px;
+            background-image: url("../images/icon-ellipsis.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            border: none;
+        }
+
+        h1 {
+            grid-column: 1/3;
+            font-size: 3rem;
+        }
+
+        p {
+            grid-column: 1/3;
+        }
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    section.item {
+        height: 130%;
+
+        .card {
+            p {
+                grid-column: 2;
+                grid-row: 2;
+                align-self: center;
+                justify-self: end;
+            }
+
+            h1 {
+                grid-column: 1;
+                grid-row: 2;
+                font-size: 2rem;
+            }
+        }
+    }
+}
